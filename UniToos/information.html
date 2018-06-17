@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>About</title>
+		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<link rel="shortcut icon" href="applogo.png" />
+		<!-- Bootstrap core CSS -->
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom fonts for this template -->
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<!-- Plugin CSS -->
+		<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="css/primary.css" rel="stylesheet">
+		<style>
+			a {
+				color: #000000;
+			}
+			.margin{
+				margin-top: 10px;
+			}
+			.fa{
+				margin-right: 3px;
+			}
+			small{
+				margin-left: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav" style="background-color: #7B1FA2;">
+			<a class="navbar-brand js-scroll-trigger" href="index.html" style="font-size: 25px">UNITOOS</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#">NEWS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="university.html">UNIVERSITIES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="profession.html">PROFESSION</a>
+					</li>
+					<li class="nav-item dropdown" id="profileTrue">
+						<a class="nav-link dropdown-toggle" href="#" id="username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							PROFILE
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="username">
+							<a class="dropdown-item" href="#">My profile</a>
+							<a class="dropdown-item" href="#">My apps</a>
+							<div class="dropdown-divider"></div>
+							<button class="dropdown-item" id="signout" onclick="signOut()">Sign out</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container" style="margin-top: 10px">
+			<div class="row">
+				<div class="col-3">
+					<div class="card" style="padding: 5px;">
+						<img class="card-img-top" src="mit.png" alt="Card image cap">
+						<h4 class="card-title" style="margin: 5px; text-align: center;">MIT</h5>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><i class="fa fa-clock-o"></i>2007 year</li>
+							<li class="list-group-item"><i class="fa fa-graduation-cap"></i>550 students</li>
+							<li class="list-group-item"><i class="fa fa-edit"></i>220 applications</li>
+							<li class="list-group-item"><i class="fa fa-compass"></i>Massachusetts, USA</li>
+						</ul>
+						<button type="button" class="btn btn-link btn-block">Apply</button>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="card description" style="margin-bottom: 7px;">
+						<div class="card-header">
+							Description
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">MIT</h5>
+							<p class="card-text">Full description about university will be in this block. Full description about university will be in this block. Full description about university will be in this block. Full description about university will be in this block.</p>
+						</div>
+					</div>
+					<div class="card info" style="margin-bottom: 7px;">
+						<div class="card-header">
+							Faculties
+						</div>
+						<div class="card-body">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">IT<small class="text-muted">SAT, IELTS, Programming exam</small></li>
+								<li class="list-group-item">Programming<small class="text-muted">IELTS, Programming exam</small></li>
+								<li class="list-group-item">Medicine<small class="text-muted">ENT, Motivation letter</small></li>
+							</ul>
+						</div>
+					</div>
+					<div class="card info" style="margin-bottom: 7px;">
+						<div class="card-header">
+							Comments
+						</div>
+							<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+								<div class="d-flex w-100 justify-content-between">
+									<h5 class="mb-1">Shyngys Rakhad</h5>
+									<small class="text-muted">2 days ago</small>
+								</div>
+								<p class="mb-1">One of the best IT universities of the world</p>
+								<small class="text-muted">10/10</small>
+							</a>
+							<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+								<div class="d-flex w-100 justify-content-between">
+									<h5 class="mb-1">Kenesary Televberdiev</h5>
+									<small class="text-muted">3 days ago</small>
+								</div>
+								<p class="mb-1">It is hard to study here. But it is only beginning. I hope I can get used to difficulties</p>
+								<small class="text-muted">7/10</small>
+							</a>
+						</div>
+				</div>
+				<div class="col-3">
+					<div class="card info" style="margin-bottom: 5px;">
+						<div class="card-header">
+							Info
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">Contact</h5>
+							<hr>
+							<p class="card-text"><i class="fa fa-phone"></i>+7 (706) 208 6923</p>
+							<hr>
+							<p class="card-text"><i class="fa fa-envelope"></i><a href="#">mit@gmail.com</a></p>
+							<hr>
+							<p class="card-text"><i class="fa fa-location-arrow"></i>Street Abylaikhana 1/1, Kaskelen, Kazakhstan </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

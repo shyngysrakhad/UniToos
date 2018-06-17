@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="UniToos">
+    <meta name="author" content="Inotechkz Group">
+
+    <title>Unitoos</title>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <link rel="shortcut icon" href="applogo.png" />
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top" style="background-color: #7B1FA2;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <img src="applogo.png" width="30px" height="30px" style="margin-right: 5px">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size: 25px">Unitoos</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="university.html">Universities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="profession.html">Professions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="registration.html" id="profileFalse">Profile</a>
+            </li>
+            <li class="nav-item dropdown" id="profileTrue">
+              <a class="nav-link dropdown-toggle" href="#" id="username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profile
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="username">
+                <a class="dropdown-item" href="#">My profile</a>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" id="signout" onclick="signOut()">Sign out</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      
+    </nav>
+
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Enter your favorite university</strong>
+            </h1>
+            <hr class="light">
+          </div>
+          <div class="col-lg-8 mx-auto">
+            <p class="text-faded mb-5">The most important step to the future</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" id="getStarted" href="registration.html">Sign up</a>
+          </div>
+        </div>
+      </div>
+    </header>
+<div class="container-fluid">
+  <section class="bg-primary" id="about">
+      <h2 class="section-heading text-white display-3 text-center">What is the Unitoos?</h2>
+      <hr class="light">
+      <div class="container sr-button">
+        <div class="row">
+          <div class="col-6 mx-auto">
+            <p class="text-faded mb-4 h5" style="line-height: 35px">Unitoos is only servise that can help you choose and enter your favorite university. Student choose suitable university via filters(faculties, location and etc) and send an application directly from system</p>
+          </div>
+          <div class="col-6 mx-auto text-center">
+            <img src="applogo.png" width="350px" height="350px">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="background-color: #EEEEEE" id="how">
+        <div class="col-lg-10 mx-auto text-center">
+             <h2 class="section-heading display-3 ">How it works?</h2>
+            <hr>
+            <div class="row">
+              <div class="col sr-icons">
+                <p class="h6 text-muted mb-0">User chooses the suitable university by using a filter (facultues, location and etc)</p>
+                  <hr>
+                  <img src="img/images/choices.png" style="margin-top: 10px; height: 150px; width: 150px">
+              </div>
+              <div class="col sr-icons">
+                <p class="h6 text-muted mb-0">Upload your certificates of the tests that university is required. System sortes the application list by the results of exams</p>
+                  <hr>
+                  <img src="img/images/certificate.png" style="margin-top: 10px; height: 150px; width: 150px">
+              </div>
+              <div class="col sr-icons">
+                <p class="h6 text-muted mb-0">Observe the position in the list of applications</p>
+                  <hr>
+                  <img src="img/images/rating.png" style="margin-top: 10px; height: 150px; width: 150px">
+              </div>
+            </div>
+          </div>
+    </section>
+    <section id="services" style="background-color: #FFFFFF;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading display-3">Features of our servise</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-info-circle mb-3 " style="color: #1565C0"></i>
+              <h3 class="mb-3">All info about uni</h3>
+              <p class="text-muted mb-0">You can read all information about your favorite university: description, location, contact, comments of other users and etc</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-filter mb-3 sr-icons" style="color: #455A64"></i>
+              <h3 class="mb-3">Choosing via filter</h3>
+              <p class="text-muted mb-0">Our system divides university by their futures, so it can be helpful to choose namely your favorite</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-user-circle-o mb-3 sr-icons" style="color: #2196F3"></i>
+              <h3 class="mb-3">Your status</h3>
+              <p class="text-muted mb-0">You can display your position in list of application. If observe suspicion in your position, you can send us a message!</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-mobile mb-3 sr-icons" style="color: #000000"></i>
+              <h3 class="mb-3">Mobility</h3>
+              <p class="text-muted mb-0">Also you can get our application to your smartphone and use it whenever and whereever</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-paper-plane mb-3 sr-icons" style="color: #03A9F4"></i>
+              <h3 class="mb-3">No paper work</h3>
+              <p class="text-muted mb-0">To apply the university all you need is to take a photo your certification that verify your exam score, no paper work</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-usd mb-3 sr-icons" style="color: #FFD600"></i>
+              <h3 class="mb-3">No money</h3>
+              <p class="text-muted mb-0">No monet is required to send an application. It is absolutely free!</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-money mb-3 sr-icons" style="color: #1B5E20"></i>
+              <h3 class="mb-3">No corruption</h3>
+              <p class="text-muted mb-0">In our system machine is working, not people that can be bought by men of means. People cannot lift a person on the list of applications. Machine is sorting the list of application by himselt. The students with the best results will be on the top of applications list. Noone can lift someone</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-heart mb-3 sr-icons" style="color: #F44336"></i>
+              <h3 class="mb-3">Made with Love</h3>
+              <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-dark text-white" id="app">
+      <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p class="h3" style="line-height: 35px; margin-bottom: 30px">Get the mobile application "Unitoos" on Play Market</p>
+                <p class="h6" style="line-height: 28px">Download our application on Play Market and apply directly from smartphone whenever and wherever</p>
+                <a class="btn btn-light btn-xl sr-button" href="#">Download Now!</a>
+            </div>
+            <div class="col-6">
+                <img src="img/images/app.png">
+            </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" style="background-color: #FFFFFF;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">Let's Get In Touch!</h2>
+            <hr class="my-4">
+            <p class="mb-5">More questions? Send us your messages</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
+            <p>+7 (776) 208 6923</p>
+          </div>
+          <div class="col-lg-4 mr-auto text-center">
+            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+            <p>
+              <a href="mailto:inotechkz@gmail.com" style="color: #000000">inotechkz@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-dark text-center text-white" >
+      <div class="row" style="margin-bottom: 30px">
+          <div class="col">
+              <strong>About us</strong>
+              <hr class="light">
+              <a href="https://www.w3schools.com/html/" style="color: #FFFFFF">Team</a>
+          </div>
+          <div class="col">
+              <strong>Products</strong>
+              <hr class="light">
+              <a href="https://www.w3schools.com/html/" style="color: #FFFFFF">Unitoos for Android</a>
+          </div>
+          <div class="col">
+              <strong>Social</strong>
+              <hr class="light">
+              <a href="https://www.facebook.com/" style="color: #FFFFFF; margin-right: 10px">Facebook</a>
+              <a href="https://www.instagram.com/" style="color: #FFFFFF; margin-right: 10px">Instagram</a>
+              <a href="https://www.vk.com/" style="color: #FFFFFF; margin-right: 10px">VK</a>
+          </div>
+      </div>
+      <p class="text-faded">All rights reserved for UniToos 2017-2018</p>
+    </section>
+</div>
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+    <script src="js/mainpage.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Professions</title>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<link rel="shortcut icon" href="applogo.png" />
+		<!-- Bootstrap core CSS -->
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom fonts for this template -->
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<!-- Plugin CSS -->
+		<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="css/primary.css" rel="stylesheet">
+		<style>
+			.card{
+			-webkit-transition: 0.3s;
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+		}
+		.card:hover{
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav" style="background-color: #7B1FA2;">
+			<a class="navbar-brand js-scroll-trigger" href="index.html" style="font-size: 25px">UNITOOS</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="news.html">NEWS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="university.html">UNIVERSITIES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#">PROFESSIONS</a>
+					</li>
+					<li class="nav-item dropdown" id="profileTrue">
+						<a class="nav-link dropdown-toggle" href="#" id="username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							PROFILE
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="username">
+							<a class="dropdown-item" href="#">My profile</a>
+							<a class="dropdown-item" href="#">My apps</a>
+							<div class="dropdown-divider"></div>
+							<button class="dropdown-item" id="signout" onclick="signOut()">Sign out</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container" style="margin-top: 10px;">
+			<div class="input-group" style="margin-top: 10px">
+				<input id="Search" type="text" class="form-control" onkeyup="myFunction()" placeholder="Search" >
+			</div>
+			<div class="row">
+				<div class="col-3" style="margin-top: 10px;">
+					<div class="card bg-light mb-3">
+						<div class="card-header">Filter</div>
+						<div class="card-body filter" id="filter">
+							<h5 class="card-title">Select gender</h5>
+							<div class="education">
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="university" id="univerBox" onchange="change()">
+									<label class="custom-control-label" for="univerBox">Male</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="institut" id="institutbox" onchange="change()">
+									<label class="custom-control-label" for="institutbox">Female</label>
+								</div>
+							</div>
+							<h5 class="card-title">Your skills</h5>
+							<div class="region">
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="pavlodar" id="customCheck1" onchange="change()">
+									<label class="custom-control-label" for="customCheck1">Leadership</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="astana" id="customCheck2" onchange="change()">
+									<label class="custom-control-label" for="customCheck2">Problemsolving</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="almaty" id="customCheck3" onchange="change()">
+									<label class="custom-control-label" for="customCheck3">Nimble</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="almaty" id="customCheck3" onchange="change()">
+									<label class="custom-control-label" for="customCheck3">Strong</label>
+								</div>
+							</div>
+							<h5 class="card-title">Where you want to work?</h5>
+							<div class="region">
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="pavlodar" id="customCheck1" onchange="change()">
+									<label class="custom-control-label" for="customCheck1">On the outside</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="astana" id="customCheck2" onchange="change()">
+									<label class="custom-control-label" for="customCheck2">Indoors</label>
+								</div>
+							</div>
+							<h5 class="card-title">With whom do you want to work?</h5>
+							<div class="region">
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="pavlodar" id="customCheck1" onchange="change()">
+									<label class="custom-control-label" for="customCheck1">With colleague</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="astana" id="customCheck2" onchange="change()">
+									<label class="custom-control-label" for="customCheck2">With children</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="astana" id="customCheck2" onchange="change()">
+									<label class="custom-control-label" for="customCheck2">Alone</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-9">
+					<div class="card-columns" style="margin-top: 10px;">
+				  <div class="card" style="padding: 5px;">
+				    <img class="card-img-top" src="img/profession/doctor.png" alt="Card image cap">
+				    <div class="card-body">
+				      <h5 class="card-title">Doctor</h5>
+				      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+				    </div>
+				  </div>
+				  <div class="card" style="padding: 5px;">
+				    <img class="card-img-top" src="img/profession/builder.png" alt="Card image cap">
+				    <div class="card-body">
+				      <h5 class="card-title">Builder</h5>
+				      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+				    </div>
+				  </div>
+				  <div class="card" style="padding: 5px;">
+				    <img class="card-img-top" src="img/profession/hairdresser.png" alt="Card image cap">
+				    <div class="card-body">
+				      <h5 class="card-title">Hairdresser</h5>
+				      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+				    </div>
+				  </div>
+				  <div class="card" style="padding: 5px;">
+				    <img class="card-img-top" src="img/profession/programmer.png" alt="Card image cap">
+				    <div class="card-body">
+				      <h5 class="card-title">Programmer</h5>
+				      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+				    </div>
+				  </div>
+				  <div class="card" style="padding: 5px;">
+				    <img class="card-img-top" src="img/profession/astronaut.png" alt="Card image cap">
+				    <div class="card-body">
+				      <h5 class="card-title">Astronaut</h5>
+				      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+				    </div>
+				  </div>
+				  <div class="card" style="padding: 5px;">
+				    <img class="card-img-top" src="img/profession/chef.png" alt="Card image cap">
+				    <div class="card-body">
+				      <h5 class="card-title">Chef</h5>
+				      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+				    </div>
+				  </div>
+			</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

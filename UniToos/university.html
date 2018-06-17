@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Universities</title>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <link rel="shortcut icon" href="applogo.png" />
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/primary.css" rel="stylesheet">
+    <style>
+    	a{
+    		color: #FFFFFF;
+    	}
+    	.card{
+			-webkit-transition: 0.3s;
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+		}
+		.card:hover{
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav" style="background-color: #7B1FA2;">
+        <a class="navbar-brand js-scroll-trigger" href="index.html" style="font-size: 25px">UNITOOS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+          	<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Universities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="profession.html">Professions</a>
+            </li>
+            <li class="nav-item dropdown" id="profileTrue">
+              <a class="nav-link dropdown-toggle" href="#" id="username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profile
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="username">
+                <a class="dropdown-item" href="#">My profile</a>
+                <a class="dropdown-item" href="#">My apps</a>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" id="signout" onclick="signOut()">Sign out</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="container">
+			<div class="input-group" style="margin-top: 10px">
+				<input id="Search" type="text" class="form-control" onkeyup="myFunction()" placeholder="Search" >
+			</div>
+			<div class="row" style="margin-top: 10px">
+				<div class="col-sm-3">
+					<div class="card bg-light mb-3">
+						<div class="card-header">Filter</div>
+						<div class="card-body filter" id="filter">
+							<div class="state">
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check"  rel="marked" id="markedBox" onchange="change()">
+									<label class="custom-control-label" for="markedBox">Only marked</label>
+								</div>
+							</div>
+							<h5 class="card-title">Select education</h5>
+							<div class="education">
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="university" id="univerBox" onchange="change()">
+									<label class="custom-control-label" for="univerBox">University</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="institut" id="institutbox" onchange="change()">
+									<label class="custom-control-label" for="institutbox">Institut</label>
+								</div>
+							</div>
+							<h5 class="card-title">Select region</h5>
+							<div class="region">
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="pavlodar" id="customCheck1" onchange="change()">
+									<label class="custom-control-label" for="customCheck1">Moscow</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="astana" id="customCheck2" onchange="change()">
+									<label class="custom-control-label" for="customCheck2">Kazan</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="almaty" id="customCheck3" onchange="change()">
+									<label class="custom-control-label" for="customCheck3">Astana</label>
+								</div>
+							</div>
+							<h5 class="card-title">Select faculty</h5>
+							<div class="faculty">
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="FacultyofMechanicsandMathematics" id="customCheck4" onchange="change()">
+									<label class="custom-control-label" for="customCheck4">Faculty of Mechanics and Mathematics</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="it" id="customCheck5" onchange="change()">
+									<label class="custom-control-label" for="customCheck5">Faculty of Computational Mathematics and Cybernetics</label>
+								</div>
+								<div class="custom-control custom-checkbox checkbox">
+									<input type="checkbox" class="custom-control-input check" rel="medicine" id="customCheck6" onchange="change()">
+									<label class="custom-control-label" for="customCheck6">Informatics and computer facilities</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-9 result" id="universityList">
+					<div class="card univerCard university pavlodar medicine programming" style="margin-bottom: 10px;">
+						<div class="card-header">
+							<span>University</span>
+							<img src="img/images/unmarked.png" onclick="alertDialog(this)" width="30px" align="right">
+						</div>
+						<div class="row" >
+							<div class="col-7">
+								<div class="card-body">
+									<h4 class="card-title univerName">MSU</h4>
+									<hr>
+									<h5>Moscow State University named after MV Lomonosov is one of the oldest and largest classical universities in Russia, one of the centers of Russian science and culture located in Moscow</h5>
+									<hr>
+									<h6><span class="text-muted">Location: </span>Moscow, Russia</h6>
+									<h6><span class="text-muted">Faculties: </span>Faculty of Mechanics and Mathematics, Faculty of Computational Mathematics and Cybernetics...</h6>
+									<h6><span class="text-muted">Requirements: </span>IESLTS, SAT</h6>
+									<hr>
+									<button type="button" class="btn btn-primary" onclick="informationClick()">More</button>
+									<button type="button" class="btn btn-link" onclick="applicationClick()">Apply</button>
+								</div>
+							</div>
+							<div class="col-5">
+								<img src="http://phdru.com/wp-content/uploads/2016/09/msulogo260260.png" class="w-100 p-3">
+							</div>
+						</div>
+					</div>
+					<div class="card univerCard university pavlodar FacultyofMechanicsandMathematics medicine" style="margin-bottom: 10px;">
+						<div class="card-header">
+							<span>University</span>
+							<img src="img/images/unmarked.png" onclick="alertDialog(this)" width="30px" align="right">
+						</div>
+						<div class="row">
+							<div class="col-7">
+								<div class="card-body">
+									<h4 class="card-title univerName">Innopolis</h4><hr>
+									<p class="card-text h5">International level education in IT sphere. Russian autonomous non-profit organization of higher education in the city of Innopolis</p>
+									<hr>
+									<h6><span class="text-muted">Location: </span>Kazan, Tatarstan</h6>
+									<h6><span class="text-muted">Faculties: </span>Informatics and computer facilities, Management of software development...</h6>
+									<h6><span class="text-muted">Requirements: </span>IESLTS, SAT</h6>
+									<hr>
+									<button type="button" class="btn btn-primary" onclick="informationClick()">More</button>
+									<button type="button" class="btn btn-link" onclick="applicationClick()">Apply</button>
+								</div>
+							</div>
+							<div class="col-5">
+								<img src="https://www.informatik.uni-bonn.de/en/news/kooperation-mit-der-innopolis-university/image_mini" class="w-100 p-3">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<script src="js/university.js"></script>
+</body>
+</html>

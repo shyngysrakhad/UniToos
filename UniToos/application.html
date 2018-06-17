@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Database
+	</title>
+	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	.file {
+  visibility: hidden;
+  position: absolute;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+.content {
+    position: absolute;
+  	margin: auto;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	width: 100px;
+  	height: 100px;
+  	border-radius: 3px;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+	<div class="content" id="loader">
+		<div class="loader"></div>
+	</div>
+	<div class="container">
+		<div id="list">
+	</div>
+	<button id="callResult" type='button' class="btn btn-info btn-lg container" style="display: none">Send certificate</button>	
+
+	<div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Uploading certificate</h4>
+        </div>
+        <div class="modal-body">
+        	<label for="usr">Your overall band score</label>
+  			<input type="text" class="form-control" id="overallScore" style=""><br>
+  			<div class="alert alert-danger" role="alert" id="dangerAlert" style="display: none">
+			  Type your overall score!
+			</div>
+  			<hr>
+  			<label for="usr">Your certificate</label>
+  			<div class="form-group">
+  			  	<input id="chooser" type="file">
+  			</div>
+  			<div class="text-center">
+			  <img src="format.png" width="400" id="image">
+			</div>
+			<hr>
+			<div class="progress" style="display: none" id="progressDiv">
+             	<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+            </div>
+            <div class="alert alert-success" role="alert" id="succesAlert" style="display: none">
+			  Certificate is uploaded successfully!
+			</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="send2">Send</button>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+
+<!--Loading modal-->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Send application</h4>
+	      </div>
+	      <div class="modal-body">
+	        <h3>Are you sure?</h3>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="result">Yes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

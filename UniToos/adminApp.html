@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Application</title>
+		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<link rel="shortcut icon" href="applogo.png" />
+		<!-- Bootstrap core CSS -->
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom fonts for this template -->
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<!-- Plugin CSS -->
+		<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="css/primary.css" rel="stylesheet">
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav" style="background-color: #7B1FA2;">
+			<a class="navbar-brand js-scroll-trigger" href="index.html" style="font-size: 25px">UNITOOS</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="news.html">NEWS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="university.html">UNIVERSITIES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="profession.html">PROFESSIONS</a>
+					</li>
+					<li class="nav-item dropdown" id="profileTrue">
+						<a class="nav-link dropdown-toggle" href="#" id="username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Admin
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="username">
+							<a class="dropdown-item" href="profile.html">My profile</a>
+							<a class="dropdown-item" href="#">My apps</a>
+							<div class="dropdown-divider"></div>
+							<button class="dropdown-item" id="signout" onclick="signOut()">Sign out</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="input-group" style="margin-top: 10px">
+				<input id="Search" type="text" class="form-control" onkeyup="myFunction()" placeholder="Search" >
+			</div>
+			<table class="table table-striped" style="margin-top: 10px">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">First</th>
+						<th scope="col">Last</th>
+						<th scope="col">Overall</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Shyngys</td>
+						<td>Rakhad</td>
+						<td>550</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>Kenesary</td>
+						<td>Televberdiev</td>
+						<td>540</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>Arman</td>
+						<td>Asanov</td>
+						<td>500</td>
+					</tr>
+					<tr>
+						<th scope="row">4</th>
+						<td>Adlet</td>
+						<td>Zeineken</td>
+						<td>490</td>
+					</tr>
+					<tr>
+						<th scope="row">5</th>
+						<td>Islam</td>
+						<td>Gallam</td>
+						<td>480</td>
+					</tr>
+					<tr>
+						<th scope="row">6</th>
+						<td>Almas</td>
+						<td>Nurahmetov</td>
+						<td>450</td>
+					</tr>
+					<tr>
+						<th scope="row">7</th>
+						<td>Ratbek</td>
+						<td>Shamshitov</td>
+						<td>400</td>
+					</tr>
+					<tr>
+						<th scope="row">8</th>
+						<td>Rustem</td>
+						<td>Ahmetov</td>
+						<td>380</td>
+					</tr>
+					<tr>
+						<th scope="row">9</th>
+						<td>Aset</td>
+						<td>Ahmetov</td>
+						<td>350</td>
+					</tr>
+					<tr>
+						<th scope="row">10</th>
+						<td>Kairat</td>
+						<td>Ahmetov</td>
+						<td>300</td>
+					</tr>
+					<tr>
+						<th scope="row">11</th>
+						<td>Erzhan</td>
+						<td>Erbol</td>
+						<td>250</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

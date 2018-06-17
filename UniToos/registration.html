@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <link rel="shortcut icon" href="applogo.png" />
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+    <style>
+    	body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+	</style>
+</head>
+	<body class="container">
+		<div id="signinForm">
+			<div class="text-center">
+				<img src="applogo.png" style="height: 70px; margin-bottom: 10px">
+			</div>
+			<h1 class="text-center">Sign in</h1>
+			<div class="form-group">
+		    <label for="loginEmail">Email address</label>
+		    <input type="email" class="form-control" id="loginEmail" placeholder="Enter email">
+		  </div>
+		  <div class="form-group">
+		    <label for="loginPassword">Password</label>
+		    <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+		  </div>
+		  <button type="submit" class="btn btn-primary btn-block" onclick="login()"><i class='fa fa-circle-o-notch fa-spin' id="loadingLogin" style="margin-right: 5px; display: none"></i>Sign in</button>
+		  <div class="row" style="margin-top: 10px">
+		  	<div class="col">
+		  		<button class="btn btn-link" style="font-size: 12px; color: #7B1FA2;" onclick="showSignup()">Not a member? Sign up</button>
+		  	</div>
+		  	<div class="col">
+		  		<button class="btn btn-link" style="font-size: 12px; color: #7B1FA2;" onclick="showReset()">Recover my password</button>
+		  	</div>
+		  </div>
+		</div>
+		<div id="signupForm" style="display: none">
+			<div class="text-center">
+				<img src="applogo.png" style="height: 70px; margin-bottom: 10px">
+			</div>
+			<h1 class="text-center">Sign up</h1>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-6">
+						<input type="text" class="form-control" id="name" placeholder="Name">
+					</div>
+					<div class="col-6">
+						<input type="text" class="form-control" id="surname" placeholder="Surname">
+					</div>
+				</div>
+		  </div>
+		   <div class="form-row">
+		    <div class="form-group col-md-4">
+		      <label for="day">Day</label>
+		      <select id="day" class="form-control">
+		      </select>
+		    </div>
+		    <div class="form-group col-md-4">
+		      <label for="month">Month</label>
+		      <select id="month" class="form-control">
+		      	<option value="01" selected>January</option>
+		      	<option value="02">February</option>
+		      	<option value="03">March</option>
+		      	<option value="04">April</option>
+		      	<option value="05">May</option>
+		      	<option value="06">June</option>
+		      	<option value="07">July</option>
+		      	<option value="08">August</option>
+		      	<option value="09">September</option>
+		      	<option value="10">October</option>
+		      	<option value="11">November</option>
+		      	<option value="12">December</option>
+		      </select>
+		    </div>
+		    <div class="form-group col-md-4">
+		      <label for="year">Year</label>
+		      <select id="year" class="form-control">
+		      </select>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <input type="text" class="form-control" id="education" placeholder="School or collage">
+		  </div>
+		  <div class="form-group">
+		    <input type="number" class="form-control" id="uin" placeholder="UIN">
+		  </div>
+		  <div class="form-group">
+		    <input type="email" class="form-control" id="email" placeholder="Email">
+		  </div>
+		  <div class="form-group">
+		    <input type="password" class="form-control" id="password" placeholder="Password">
+		  </div>
+		  <button type="button" class="btn btn-primary btn-block" onclick="registration()">Sign up</button>
+		  <div class="row" style="margin-top: 10px">
+		  	<div class="col">
+		  		<button class="btn btn-link" style="font-size: 12px; color: #7B1FA2;" onclick="showSignin()">Already registered? Sign in</button>
+		  	</div>
+		  	<div class="col text-right">
+		  		<button class="btn btn-link" style="font-size: 12px; color: #7B1FA2;" onclick="showReset()">Recover my password</button>
+		  	</div>
+		  </div>
+		</div>
+		<div class="modal fade" id="verificationDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Email verification</h5>
+		      </div>
+		      <div class="modal-body">
+		        <p>We have sent verification message to your email. Please, check your email and after verification, click "Continue"</p>
+		        <div class="alert alert-danger" role="alert" id="dangerAlert" style="display: none">
+				  This is a danger alert—check it out!
+				</div>
+				<div class="alert alert-success" role="alert" id="successAlert" style="display: none">
+				  This is a danger alert—check it out!
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" onclick="verify()">Continue</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<div id="resetForm" style="display: none">
+			<div class="text-center">
+				<img src="applogo.png" style="height: 70px; margin-bottom: 10px">
+			</div>
+			<h1 class="text-center">Password reset</h1>
+			<div class="form-group">
+		    	<input type="email" class="form-control" id="resetEmail" placeholder="Enter email">
+		  	</div>
+		  <button type="submit" class="btn btn-primary btn-block">Reset password</button>
+		  <button class="btn btn-link" style="font-size: 12px; color: #7B1FA2;" onclick="showSignin()">Sign in</button>
+		</div>
+		<script src="js/login.js"></script>
+  	</body>
+</html>
